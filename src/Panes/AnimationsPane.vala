@@ -42,9 +42,9 @@ public class PantheonTweaks.Panes.AnimationsPane : Categories.Pane {
         var close_adj = new Gtk.Adjustment (0, 0, 1000, 10, 10, 10);
         var close_duration_spinbutton = new SpinButton (close_adj);
 
-        //TRANSLATORS: The word "snap" refers to a feature of Pantheon that allows you to resize a window
-        //into the half size of your screen automatically. So this string means the length of animation
-        //when you "snap" a window.
+        /// TRANSLATORS: The word "snap" refers to a feature of Pantheon that allows you to resize a window
+        /// into the half size of your screen automatically. So this string means the length of animation
+        /// when you "snap" a window.
         var snap_duration_label = new SummaryLabel (_("Snap:"));
         var snap_adj = new Gtk.Adjustment (0, 0, 1000, 10, 10, 10);
         var snap_duration_spinbutton = new SpinButton (snap_adj);
@@ -76,7 +76,7 @@ public class PantheonTweaks.Panes.AnimationsPane : Categories.Pane {
         settings.bind ("minimize-duration", minimize_duration_spinbutton, "value", SettingsBindFlags.DEFAULT);
         settings.bind ("workspace-switch-duration", workspace_duration_spinbutton, "value", SettingsBindFlags.DEFAULT);
 
-        connect_reset_button (() => {
+        on_click_reset (() => {
             string[] keys = {
                 "enable-animations", "open-duration", "snap-duration",
                 "minimize-duration", "close-duration", "workspace-switch-duration"

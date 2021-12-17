@@ -1,4 +1,8 @@
-project('pantheon-tweaks', 'vala', 'c', version: '1.0.1')
+project(
+    'pantheon-tweaks',
+    'vala', 'c',
+    version: '1.0.3'
+)
 
 switchboard_dep = dependency('switchboard-2.0')
 gettext_name = meson.project_name() + '-plug'
@@ -26,6 +30,7 @@ subdir('po')
 
 plug_files = files(
     'src/Tweaks.vala',
+    'src/Settings/AccountsService.vala',
     'src/Settings/GtkSettings.vala',
     'src/Settings/ThemeSettings.vala',
     'src/Settings/XSettings.vala',
@@ -35,7 +40,6 @@ plug_files = files(
     'src/Panes/MiscPane.vala',
     'src/Panes/FilesPane.vala',
     'src/Panes/TerminalPane.vala',
-    'src/Panes/VideosPane.vala',
     'src/Widgets/Categories.vala',
 )
 

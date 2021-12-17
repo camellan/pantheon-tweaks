@@ -17,42 +17,45 @@
  */
 
 public class PantheonTweaks.Categories : Gtk.Paned {
-    private const string[] PANE_NAME = { "appearance", "fonts", "animations", "misc", "files", "terminal", "videos" };
+    private const string[] PANE_NAME = { "appearance", "fonts", "animations", "misc", "files", "terminal" };
 
     private Gtk.ListBox pane_list;
 
     construct {
         var appearance_pane = new Panes.AppearancePane ();
-        var fonts_pane = new Panes.FontsPane ();
-        var animations_pane = new Panes.AnimationsPane ();
-        var misc_pane = new Panes.MiscPane ();
         var files_pane = new Panes.FilesPane ();
-        var terminal_pane = new Panes.TerminalPane ();
-        var videos_pane = new Panes.VideosPane ();
+
+        var panes = new Gee.ArrayList<Categories.Pane> ();
+        panes.add (appearance_pane);
+        panes.add (new Panes.FontsPane ());
+        panes.add (new Panes.AnimationsPane ());
+        panes.add (new Panes.MiscPane ());
+        panes.add (files_pane);
+        panes.add (new Panes.TerminalPane ());
 
         // Left: Add PaneListItems to PaneList
         pane_list = new Gtk.ListBox ();
         pane_list.set_size_request (176, 10);
-        pane_list.add (appearance_pane.pane_list_item);
-        pane_list.add (fonts_pane.pane_list_item);
-        pane_list.add (animations_pane.pane_list_item);
-        pane_list.add (misc_pane.pane_list_item);
-        pane_list.add (files_pane.pane_list_item);
-        pane_list.add (terminal_pane.pane_list_item);
-        pane_list.add (videos_pane.pane_list_item);
 
         // Right: Add Pane itself to Stack
         var stack = new Gtk.Stack ();
-        stack.add (appearance_pane);
-        stack.add (fonts_pane);
-        stack.add (animations_pane);
-        stack.add (misc_pane);
-        stack.add (files_pane);
-        stack.add (terminal_pane);
-        stack.add (videos_pane);
+
+        var toast = new Granite.Widgets.Toast (_("Reset settings successfully"));
+
+        var overlay = new Gtk.Overlay ();
+        overlay.add (stack);
+        overlay.add_overlay (toast);
+
+        foreach (var pane in panes) {
+            pane_list.add (pane.pane_list_item);
+            stack.add (pane);
+            pane.restored.connect (() => {
+                toast.send_notification ();
+            });
+        }
 
         pack1 (pane_list, false, false);
-        add2 (stack);
+        add2 (overlay);
 
         pane_list.row_selected.connect ((row) => {
             var list_item = ((Categories.Pane.PaneListItem) row);
@@ -82,6 +85,8 @@ public class PantheonTweaks.Categories : Gtk.Paned {
     }
 
     public abstract class Pane : Granite.SimpleSettingsPage {
+        public signal void restored ();
+
         protected delegate void Reset ();
 
         public PaneListItem pane_list_item { get; private set; }
@@ -116,12 +121,31 @@ public class PantheonTweaks.Categories : Gtk.Paned {
             return (SettingsSchemaSource.get_default ().lookup (schema, true) != null);
         }
 
-        protected void connect_reset_button (owned Reset reset_func) {
+        protected void on_click_reset (owned Reset reset_func) {
             var reset = new Gtk.LinkButton (_("Reset to default"));
             reset.can_focus = false;
 
             reset.activate_link.connect (() => {
-                reset_func ();
+                var reset_confirm_dialog = new Granite.MessageDialog.with_image_from_icon_name (
+                    _("Are you sure you want to reset personalization?"),
+                    _("All settings in this pane will be restored to the factory defaults. This action can't be undone."),
+                    "dialog-warning", Gtk.ButtonsType.CANCEL
+                ) {
+                    modal = true,
+                    transient_for = (Gtk.Window) get_toplevel ()
+                };
+                var reset_button = reset_confirm_dialog.add_button (_("Reset"), Gtk.ResponseType.ACCEPT);
+                reset_button.get_style_context ().add_class (Gtk.STYLE_CLASS_DESTRUCTIVE_ACTION);
+                reset_confirm_dialog.response.connect ((response_id) => {
+                    if (response_id == Gtk.ResponseType.ACCEPT) {
+                        reset_func ();
+                        restored ();
+                    }
+
+                    reset_confirm_dialog.destroy ();
+                });
+                reset_confirm_dialog.show ();
+
                 return true;
             });
 
@@ -177,12 +201,52 @@ public class PantheonTweaks.Categories : Gtk.Paned {
 
         protected class ComboBoxText : Gtk.ComboBoxText {
             public ComboBoxText (Gee.HashMap<string, string> items) {
-                set_size_request (180, 0);
-                halign = Gtk.Align.START;
-
                 foreach (var item in items.entries) {
                     append (item.key, item.value);
                 }
+            }
+
+            public ComboBoxText.from_list (Gee.List<string> items) {
+                for (int i = 0; i < items.size; i++) {
+                    append (items.get (i), items.get (i));
+                }
+            }
+
+            construct {
+                set_size_request (180, 0);
+                halign = Gtk.Align.START;
+            }
+        }
+
+        protected class DestinationButton : Gtk.Button {
+            public string destination_uri { private get; construct; }
+
+            public DestinationButton (string destination) {
+                Object (
+                    image: new Gtk.Image.from_icon_name ("folder-open", Gtk.IconSize.BUTTON),
+                    destination_uri: "file://%s/%s".printf (Environment.get_home_dir (), destination),
+                    valign: Gtk.Align.START,
+                    tooltip_text: _("Open destination folder")
+                );
+            }
+
+            construct {
+                clicked.connect (() => {
+                    var dir = File.new_for_uri (destination_uri);
+                    if (!dir.query_exists ()) {
+                        try {
+                            dir.make_directory_with_parents ();
+                        } catch (Error e) {
+                            warning (e.message);
+                        }
+                    }
+
+                    try {
+                        GLib.AppInfo.launch_default_for_uri (destination_uri, null);
+                    } catch (Error e) {
+                        warning (e.message);
+                    }
+                });
             }
         }
 

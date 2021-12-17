@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-08-24 17:06+0900\n"
-"PO-Revision-Date: 2021-08-24 17:08+0900\n"
+"POT-Creation-Date: 2021-12-06 09:34+0900\n"
+"PO-Revision-Date: 2021-12-06 09:40+0900\n"
 "Last-Translator: Ryo Nakano <ryonakaknock3@gmail.com>\n"
 "Language-Team: \n"
 "Language: ja\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "Pantheon Tweaks"
 msgstr "Pantheon Tweaks"
 
-#: data/pantheon-tweaks.appdata.xml.in:6 src/Tweaks.vala:41
+#: data/pantheon-tweaks.appdata.xml.in:6 src/Tweaks.vala:40
 msgid "Tweak Pantheon settings"
 msgstr "Pantheon の設定を微調整します"
 
@@ -33,19 +33,100 @@ msgstr ""
 "けのシステム設定パネルです。"
 
 #: data/pantheon-tweaks.appdata.xml.in:18
+msgid "FontsPane: Fix icon missing with the latest icons update"
+msgstr ""
+"フォントペイン: 最近のアイコンのアップデートによって、ペインのアイコンが表示"
+"されなくなっていた不具合を修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:19
+msgid ""
+"Make sure dimming feature that is introduced in the latest version of Gala "
+"work for the reset dialog"
+msgstr ""
+"最新バージョンの Gala で導入された親ウィンドウを薄暗くする機能がリセットダイ"
+"アログに対して動作するように修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:20
+msgid "AppearancePane: Sort theme namaes alphabetically"
+msgstr "外観ペイン: テーマ名をアルファベット順で表示するように修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:21
+msgid "TerminalPane: Support changing tab bar behavior"
+msgstr "ターミナルペイン: タブバーの挙動の変更に対応"
+
+#: data/pantheon-tweaks.appdata.xml.in:22
+msgid "AppearancePane: Add buttons to open the theme locations"
+msgstr "外観ペイン: テーマの保存先を開くボタンを追加"
+
+#: data/pantheon-tweaks.appdata.xml.in:24
+#: data/pantheon-tweaks.appdata.xml.in:40
+msgid "Translation updates:"
+msgstr "翻訳の更新:"
+
+#: data/pantheon-tweaks.appdata.xml.in:26
+msgid "Update Chinese Simplified translation (thanks to @imgradeone)"
+msgstr "簡体字中国語語翻訳を更新 (貢献者: @imgradeone)"
+
+#: data/pantheon-tweaks.appdata.xml.in:27
+msgid "Update German translation (thanks to @uwe-ss)"
+msgstr "ドイツ語翻訳を更新 (貢献者: @uwe-ss)"
+
+#: data/pantheon-tweaks.appdata.xml.in:28
+#: data/pantheon-tweaks.appdata.xml.in:45
+msgid "Update Japanese translation"
+msgstr "日本語翻訳を更新"
+
+#: data/pantheon-tweaks.appdata.xml.in:35
+msgid "Sync selected elementary stylesheet variant with Desktop Plug"
+msgstr ""
+"選択された elementary スタイルシートの色がデスクトッププラグの設定と同期する"
+"ように修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:36
+msgid "Improves reliability of restoring visually"
+msgstr "設定をリセットしたことが視覚的わかるように修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:37
+msgid ""
+"Prevent System Settings from crashing due to the removal of preferences in "
+"upstream Videos"
+msgstr ""
+"“ビデオ”での設定項目の削除が原因で“システム設定”がクラッシュする不具合を修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:38
+msgid "Correct cursor and icon theme dir copies"
+msgstr "カーソルとアイコンテーマのディレクトリのテキストを修正"
+
+#: data/pantheon-tweaks.appdata.xml.in:42
+msgid "Update French translation (thanks to @roxfr)"
+msgstr "フランス語翻訳を更新 (貢献者: @roxfr)"
+
+#: data/pantheon-tweaks.appdata.xml.in:43
+msgid "Update Russian translation (thanks to @camellan)"
+msgstr "ロシア語翻訳を更新 (貢献者: @camellan)"
+
+#: data/pantheon-tweaks.appdata.xml.in:44
+msgid "Update Portuguese translation (thanks to @hugok79)"
+msgstr "ポルトガル語翻訳を更新 (貢献者: @hugok79)"
+
+#: data/pantheon-tweaks.appdata.xml.in:52
 msgid "Exclude Adwaita/gnome/hicolor themes from theme selections"
 msgstr "テーマの選択肢から Adwaita/gnome/hicolor を除外するように修正"
 
-#: data/pantheon-tweaks.appdata.xml.in:19
+#: data/pantheon-tweaks.appdata.xml.in:53
 msgid "Support accessing to panes with settings paths"
 msgstr "設定パスを使用してペインにアクセスできる機能を追加"
 
-#: data/pantheon-tweaks.appdata.xml.in:20
-#: data/pantheon-tweaks.appdata.xml.in:34
+#: data/pantheon-tweaks.appdata.xml.in:54
+msgid "Make sure the plug works on NixOS (thanks to @bobby285271)"
+msgstr "NixOS でプラグが動作するように修正 (貢献者: @bobby285271)"
+
+#: data/pantheon-tweaks.appdata.xml.in:55
+#: data/pantheon-tweaks.appdata.xml.in:69
 msgid "Update translations"
 msgstr "翻訳の更新"
 
-#: data/pantheon-tweaks.appdata.xml.in:26
+#: data/pantheon-tweaks.appdata.xml.in:61
 msgid ""
 "elementary Tweaks is now renamed to Pantheon Tweaks and get some new "
 "features and fixes:"
@@ -53,35 +134,35 @@ msgstr ""
 "elementary Tweaks から Pantheon Tweaks に名称変更し、以下の新機能と修正が追加"
 "されました:"
 
-#: data/pantheon-tweaks.appdata.xml.in:28
+#: data/pantheon-tweaks.appdata.xml.in:63
 msgid "Remove preferences now supported in Pantheon officially"
 msgstr "Pantheon に正式に追加された設定項目を削除"
 
-#: data/pantheon-tweaks.appdata.xml.in:29
+#: data/pantheon-tweaks.appdata.xml.in:64
 msgid "Remove preferences causing the plug crash"
 msgstr "クラッシュを引き起こす設定項目を削除"
 
-#: data/pantheon-tweaks.appdata.xml.in:30
+#: data/pantheon-tweaks.appdata.xml.in:65
 msgid "Fully redesigned plug"
 msgstr "抜本的なデザイン変更"
 
-#: data/pantheon-tweaks.appdata.xml.in:31
+#: data/pantheon-tweaks.appdata.xml.in:66
 msgid "Support changing sound theme (thanks to @pongloongyeat)"
 msgstr "サウンドテーマの変更に対応 (貢献者: @pongloongyeat)"
 
-#: data/pantheon-tweaks.appdata.xml.in:32
+#: data/pantheon-tweaks.appdata.xml.in:67
 msgid "Add new window controls layout"
 msgstr "新しいウィンドウコントロールのレイアウトを追加"
 
-#: data/pantheon-tweaks.appdata.xml.in:33
+#: data/pantheon-tweaks.appdata.xml.in:68
 msgid "Fix deprecations"
 msgstr "非推奨のコードを修正"
 
-#: data/pantheon-tweaks.appdata.xml.in:41
+#: data/pantheon-tweaks.appdata.xml.in:76
 msgid "Appearance pane"
 msgstr "“外観”ペイン"
 
-#: src/Tweaks.vala:40
+#: src/Tweaks.vala:39
 msgid "Tweaks"
 msgstr "Tweaks"
 
@@ -117,11 +198,11 @@ msgstr "最小化:"
 msgid "Workspace switch:"
 msgstr "ワークスペースの切り替え:"
 
-#: src/Panes/AppearancePane.vala:30
+#: src/Panes/AppearancePane.vala:34
 msgid "Appearance"
 msgstr "外観"
 
-#: src/Panes/AppearancePane.vala:31
+#: src/Panes/AppearancePane.vala:35
 msgid ""
 "Change the theme and button layout of windows. Changing theme may cause "
 "visibility issue."
@@ -129,60 +210,60 @@ msgstr ""
 "ウィンドウのテーマとボタンレイアウトを変更します。テーマを変更すると、視覚的"
 "な不具合が生じる可能性があります。"
 
-#: src/Panes/AppearancePane.vala:43
+#: src/Panes/AppearancePane.vala:75
 msgid "Theme Settings"
 msgstr "テーマの設定"
 
-#: src/Panes/AppearancePane.vala:45
+#: src/Panes/AppearancePane.vala:77
 msgid "GTK:"
 msgstr "GTK:"
 
-#. / TRANSLATORS: The "%s" represents the path where custom themes are installed
-#: src/Panes/AppearancePane.vala:50
+#. TRANSLATORS: The "%s" represents the path where custom themes are installed
+#: src/Panes/AppearancePane.vala:82
 #, c-format
 msgid "To show custom themes here, put them in %s."
 msgstr "カスタムテーマをここに表示させるには、%s 以下に配置してください。"
 
-#: src/Panes/AppearancePane.vala:51 src/Panes/AppearancePane.vala:60
-#: src/Panes/AppearancePane.vala:69 src/Panes/AppearancePane.vala:78
+#: src/Panes/AppearancePane.vala:83 src/Panes/AppearancePane.vala:94
+#: src/Panes/AppearancePane.vala:105 src/Panes/AppearancePane.vala:116
 msgid "theme-name"
 msgstr "テーマ名"
 
-#: src/Panes/AppearancePane.vala:54
+#: src/Panes/AppearancePane.vala:88
 msgid "Icons:"
 msgstr "アイコン:"
 
-#. / TRANSLATORS: The "%s" represents the path where custom icons are installed
-#: src/Panes/AppearancePane.vala:59
+#. TRANSLATORS: The "%s" represents the path where custom icons are installed
+#: src/Panes/AppearancePane.vala:93
 #, c-format
 msgid "To show custom icons here, put them in %s."
 msgstr "カスタムアイコンをここに表示させるには、%s 以下に配置してください。"
 
-#: src/Panes/AppearancePane.vala:63
+#: src/Panes/AppearancePane.vala:99
 msgid "Cursor:"
 msgstr "カーソル:"
 
-#. / TRANSLATORS: The "%s" represents the path where custom cursors are installed
-#: src/Panes/AppearancePane.vala:68
+#. TRANSLATORS: The "%s" represents the path where custom cursors are installed
+#: src/Panes/AppearancePane.vala:104
 #, c-format
 msgid "To show custom cursors here, put them in %s."
 msgstr "カスタムカーソルをここに表示させるには、%s 以下に配置してください。"
 
-#: src/Panes/AppearancePane.vala:72
+#: src/Panes/AppearancePane.vala:110
 msgid "Sound:"
 msgstr "サウンド:"
 
-#. / TRANSLATORS: The "%s" represents the path where custom sounds are installed
-#: src/Panes/AppearancePane.vala:77
+#. TRANSLATORS: The "%s" represents the path where custom sounds are installed
+#: src/Panes/AppearancePane.vala:115
 #, c-format
 msgid "To show custom sounds here, put them in %s."
 msgstr "カスタムサウンドをここに表示させるには、%s 以下に配置してください。"
 
-#: src/Panes/AppearancePane.vala:81
+#: src/Panes/AppearancePane.vala:121
 msgid "Force to use dark stylesheet:"
 msgstr "ダークスタイルシートを強制的に適用:"
 
-#: src/Panes/AppearancePane.vala:85
+#: src/Panes/AppearancePane.vala:125
 msgid ""
 "Forces dark style on all apps, even if it's not supported. Requires "
 "restarting the application."
@@ -190,63 +271,63 @@ msgstr ""
 "対応していないアプリに対しても、ダークモードを強制します。アプリケーションの"
 "再起動が必要です。"
 
-#: src/Panes/AppearancePane.vala:88
+#: src/Panes/AppearancePane.vala:128
 msgid "Window Controls"
 msgstr "ウィンドウコントロール"
 
-#: src/Panes/AppearancePane.vala:90
+#: src/Panes/AppearancePane.vala:130
 msgid "Layout:"
 msgstr "レイアウト:"
 
-#: src/Panes/AppearancePane.vala:93
+#: src/Panes/AppearancePane.vala:133
 msgid "Changes button layout of the window."
 msgstr "ウィンドウのボタンレイアウトを変更します。"
 
-#: src/Panes/AppearancePane.vala:95
+#: src/Panes/AppearancePane.vala:135
 msgid "Show GNOME menu:"
 msgstr "GNOME メニューを表示:"
 
-#: src/Panes/AppearancePane.vala:97
+#: src/Panes/AppearancePane.vala:137
 msgid "Whether to show GNOME menu in GNOME apps."
 msgstr "GNOME アプリで GNOME メニューを表示するかどうかを設定します。"
 
-#: src/Panes/AppearancePane.vala:169
+#: src/Panes/AppearancePane.vala:234
 msgid "elementary"
 msgstr "elementary"
 
-#: src/Panes/AppearancePane.vala:170
+#: src/Panes/AppearancePane.vala:235
 msgid "elementary Reversed"
 msgstr "elementary Reversed"
 
-#: src/Panes/AppearancePane.vala:171
+#: src/Panes/AppearancePane.vala:236
 msgid "Close Only Right"
 msgstr "閉じるボタンのみを右に表示"
 
-#: src/Panes/AppearancePane.vala:172
+#: src/Panes/AppearancePane.vala:237
 msgid "Close Only Left"
 msgstr "閉じるボタンのみを左に表示"
 
-#: src/Panes/AppearancePane.vala:173
+#: src/Panes/AppearancePane.vala:238
 msgid "Add Minimize Left"
 msgstr "最小化ボタンを左に追加"
 
-#: src/Panes/AppearancePane.vala:174
+#: src/Panes/AppearancePane.vala:239
 msgid "Add Minimize Right"
 msgstr "最小化ボタンを右に追加"
 
-#: src/Panes/AppearancePane.vala:175
+#: src/Panes/AppearancePane.vala:240
 msgid "Replace Maximize to Minimize"
 msgstr "最大化ボタンを最小化ボタンに置き換え"
 
-#: src/Panes/AppearancePane.vala:176
+#: src/Panes/AppearancePane.vala:241
 msgid "Windows"
 msgstr "Windows"
 
-#: src/Panes/AppearancePane.vala:177
+#: src/Panes/AppearancePane.vala:242
 msgid "macOS"
 msgstr "macOS"
 
-#: src/Panes/AppearancePane.vala:178
+#: src/Panes/AppearancePane.vala:243
 msgid "Ubuntu"
 msgstr "Ubuntu"
 
@@ -362,39 +443,54 @@ msgstr ""
 "行の最後に到達した場合や、入力補完の候補がない、または1つしかない場合に、音を"
 "鳴らします。"
 
-#: src/Panes/VideosPane.vala:24
-msgid "Videos"
-msgstr "ビデオ"
+#: src/Panes/TerminalPane.vala:65
+msgid "Always"
+msgstr "常に表示"
 
-#: src/Panes/VideosPane.vala:34
-msgid "Stay on top while playing:"
-msgstr "再生中は最前面に表示:"
+#: src/Panes/TerminalPane.vala:66
+msgid "Hide when single tab"
+msgstr "タブが一つの場合は表示しない"
 
-#: src/Panes/VideosPane.vala:37
-msgid "Move window from video canvas:"
-msgstr "ビデオキャンバスでウィンドウを移動:"
+#: src/Panes/TerminalPane.vala:67
+msgid "Never"
+msgstr "表示しない"
 
-#: src/Panes/VideosPane.vala:39
-msgid "If enabled, the window can be dragged by clicking anywhere on it."
-msgstr ""
-"有効にすると、ウィンドウのどこをクリックしてもドラッグできるようになります。"
+#: src/Panes/TerminalPane.vala:69
+msgid "Show tabs:"
+msgstr "タブを表示:"
 
-#: src/Panes/VideosPane.vala:41
-msgid "Don't instantly start video playback:"
-msgstr "動画を自動的に再生しない:"
+#: src/Widgets/Categories.vala:43
+msgid "Reset settings successfully"
+msgstr "設定を正常にリセットしました"
 
-#: src/Panes/VideosPane.vala:43
-msgid "If enabled, opening a video will not auto play it."
-msgstr "有効にすると、動画を開いても自動的に再生しません。"
-
-#: src/Widgets/Categories.vala:66
+#: src/Widgets/Categories.vala:69
 msgid "General"
 msgstr "一般"
 
-#: src/Widgets/Categories.vala:68
+#: src/Widgets/Categories.vala:71
 msgid "Applications"
 msgstr "アプリケーション"
 
-#: src/Widgets/Categories.vala:120
+#: src/Widgets/Categories.vala:125
 msgid "Reset to default"
 msgstr "デフォルトにリセット"
+
+#: src/Widgets/Categories.vala:130
+msgid "Are you sure you want to reset personalization?"
+msgstr "個人設定をリセットしてもよろしいですか？"
+
+#: src/Widgets/Categories.vala:131
+msgid ""
+"All settings in this pane will be restored to the factory defaults. This "
+"action can't be undone."
+msgstr ""
+"このペインにあるすべての設定が出荷時のデフォルトに復元されます。この操作はや"
+"り直せません。"
+
+#: src/Widgets/Categories.vala:137
+msgid "Reset"
+msgstr "リセット"
+
+#: src/Widgets/Categories.vala:229
+msgid "Open destination folder"
+msgstr "保存先を開く"
