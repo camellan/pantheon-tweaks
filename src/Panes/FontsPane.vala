@@ -20,7 +20,7 @@
 public class PantheonTweaks.Panes.FontsPane : Categories.Pane {
     public FontsPane () {
         base (
-            _("Fonts"), "applications-fonts",
+            _("Fonts"), "preferences-desktop-font",
             _("Change the fonts used in your system and documents by default.")
         );
     }
@@ -57,7 +57,7 @@ public class PantheonTweaks.Panes.FontsPane : Categories.Pane {
         interface_settings.bind ("monospace-font-name", mono_font_button, "font-name", SettingsBindFlags.DEFAULT);
         window_settings.bind ("titlebar-font", titlebar_font_button, "font-name", SettingsBindFlags.DEFAULT);
 
-        connect_reset_button (() => {
+        on_click_reset (() => {
             string[] keys = {"font-name", "document-font-name", "monospace-font-name"};
 
             foreach (var key in keys) {
